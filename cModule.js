@@ -5,7 +5,7 @@ var colors = require('colors');
 
 
 exports.stats = true ;
-exports.compileCPP = function ( envData ,  code , fn ) { 
+exports.compileC = function ( envData ,  code , fn ) { 
 	//creating source file
 	var filename = cuid.slug();
 	var path = './temp/';
@@ -20,8 +20,8 @@ exports.compileCPP = function ( envData ,  code , fn ) {
 		}
 	});
  	//compiling and excuiting source code
-	if(envData.OS === 'Linux' || envData.cmd === 'g++'){
-		commmand = 'g++ ' + path + filename +'.cpp -o '+path + filename;
+	if(envData.OS === 'Linux' || envData.cmd === 'gcc'){
+		commmand = 'gcc ' + path + filename +'.cpp -o '+path + filename;
 		exec(commmand , function ( error , stdout , stderr ){  
 			if(error){
 				if(exports.stats){
@@ -60,7 +60,7 @@ exports.compileCPP = function ( envData ,  code , fn ) {
 }
 //end of compileCPP
 
-exports.compileCPPWithInput = function ( envData , code , input ,  fn ) { 
+exports.compileCWithInput = function ( envData , code , input ,  fn ) { 
 	var filename = cuid.slug();
 	path = './temp/';
 	 			 
@@ -75,11 +75,11 @@ exports.compileCPPWithInput = function ( envData , code , input ,  fn ) {
 		} 
 	});
 
-	if(envData.OS === 'Linux' || envData.cmd ==='g++')
+	if(envData.OS === 'Linux' || envData.cmd ==='gcc')
 	    {	    	    
 
 			//compile c code 
-			commmand = 'g++ ' + path + filename +'.cpp -o '+ path + filename ;
+			commmand = 'gcc ' + path + filename +'.cpp -o '+ path + filename ;
 			exec(commmand , function ( error , stdout , stderr ){  
 				if(error)
 				{

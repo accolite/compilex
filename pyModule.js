@@ -37,7 +37,9 @@ exports.compilePython = function (envData , code , fn){
 						}
 							var out = { error : stderr };
 							fn(out);								
-					}													
+					}
+					var out = { error : stderr };
+					fn(out);																				
 				}
 				else
 				{
@@ -95,7 +97,9 @@ exports.compilePythonWithInput = function( envData , code , input ,  fn){
 								}
 								var out = { error : stderr };
 								fn(out);								
-							}													
+							}
+							var out = { error : stderr };
+							fn(out);																
 						}
 						else
 						{

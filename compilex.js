@@ -1,13 +1,11 @@
 var exec  = require('child_process').exec;
 var fs = require('fs');
-var cuid = require('cuid');
-var colors = require('colors');
+
 var cppModule = require('./cppModule.js');
 var javaModule = require('./javaModule.js');
 var pyModule = require('./pyModule.js');
-var csModule = require('./csModule.js');
-var vbModule = require('./vbModule.js');
-
+var cModule = require('./cModule.js');
+//var vbModule = require('./vbModule.js');
 
 exports.stats = false;
 
@@ -31,7 +29,6 @@ exports.init = function(option){
 		    }
 	});
 }
-
 exports.compileCPP = function ( envData ,  code , fn ){
 	if(exports.stats)
 		cppModule.stats = true;
@@ -43,7 +40,17 @@ exports.compileCPPWithInput = function ( envData , code , input ,  fn ) {
 		cppModule.stats = true;
 	cppModule.compileCPPWithInput(envData , code , input , fn );	
 }
+exports.compileC = function ( envData ,  code , fn ){
+	if(exports.stats)
+		cModule.stats = true;
+	cModule.compileC(envData , code , fn );
+}
 
+exports.compileCWithInput = function ( envData , code , input ,  fn ) { 
+	if(exports.stats)
+		cModule.stats = true;
+	cModule.compileCWithInput(envData , code , input , fn );	
+}
 
 exports.compileJava = function ( envData , code , fn ){
 	if(exports.stats)
@@ -93,6 +100,7 @@ exports.compileVBWithInput = function ( envData , code , input ,  fn ) {
 		vbModule.stats = true;
 	vbModule.compileVBWithInput(envData , code , input , fn );	
 }
+
 
 exports.flushSync = function() {
 	    path = '	./temp/';
