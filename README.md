@@ -252,19 +252,3 @@ fullStat returns json data about your server.
         res.send(data);
     });
 ```
-
-Examples
-========
-You can find examples <a href="examples">here</a>.The examples are downloaded everytime you download compilex via npm.
-you can begin with editing CSS and publish your site in minutes.
-Here is the screenshot of the demo.
-<br />
-<br />
-![alt text](https://github.com/scriptnull/compileX/raw/master/DemoPicture.png "Screenshot image.")
-
-License
-=======
-All the contents in this repository are released under the <a href="https://github.com/scriptnull/compilex/blob/master/License.md">MIT License</a> .
-
-[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/scriptnull/)
-
